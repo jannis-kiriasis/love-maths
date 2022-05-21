@@ -92,7 +92,7 @@ function calculateCorrectAnswer() {
     } else if (operator === "-") {
         return [operand1 - operand2, "subtract"];
     } else if (operator === "/") {
-        return [Math.round(operand1 / operand2), "division"];
+        return [operand1 / operand2, "division"];
     } else {
         alert(`Unimplemented operator ${operator}`);
         throw `Unimplemented operator ${operator}. Aborting!`;
@@ -137,11 +137,11 @@ function displaySubtractQuestion(operand1, operand2) {
 }
 
 function displayDivisionQuestion(operand1, operand2) {
-
-    document.getElementById("operand1").textContent = operand1 > operand2 ? operand1 : operand2;
-    document.getElementById("operand2").textContent = operand1 > operand2 ? operand2 : operand1;
-    document.getElementById('operator').textContent = "/";
-
+    operand1 = operand1 * operand2;
+    
+    document.getElementById("operand1").textContent = operand1;
+    document.getElementById("operand2").textContent = operand2;
+    document.getElementById("operator").textContent = "/";
 }
 
 function displayMultiplyQuestion(operand1, operand2) {
